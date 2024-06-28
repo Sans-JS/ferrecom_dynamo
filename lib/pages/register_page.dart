@@ -2,18 +2,24 @@ import 'package:ferrecom_dynamo/components/my_button.dart';
 import 'package:ferrecom_dynamo/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
-  const LoginPage({super.key, this.onTap});
+  const RegisterPage({
+    super.key,
+    this.onTap,
+  });
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             // slogan
 
             Text(
-              "Food delivery app",
+              "Crea tu cuenta en minutos :D",
               style: TextStyle(
                 fontSize: 18,
                 color: Theme.of(context).colorScheme.inversePrimary,
@@ -53,20 +59,28 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordController,
                 hintText: "Password",
                 obscureText: true),
+            const SizedBox(height: 15),
+
+            // campo de texto para confirmar contraseña
+            MyTextfield(
+                controller: confirmPasswordController,
+                hintText: "Password",
+                obscureText: true),
             const SizedBox(height: 25),
 
             // boton de inicio de sesión
             MyButton(
-              text: "Iniciar sesión",
+              text: "Registrarme",
               onTap: () {},
             ),
             const SizedBox(height: 25),
-            // no tienes cuenta? Registrate
+
+            // ¿Ya tienes cuenta? Inicia sesión
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "¿No estas registrado?",
+                  "¿Ya tienes cuenta?",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -75,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text(
-                    "Registrate aquí",
+                    "Inicia sesión",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                       fontWeight: FontWeight.bold,

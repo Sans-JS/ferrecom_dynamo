@@ -1,3 +1,4 @@
+import 'package:ferrecom_dynamo/pages/register_page.dart';
 import 'package:ferrecom_dynamo/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: RegisterPage(
+        onTap: () {},
+      ),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
